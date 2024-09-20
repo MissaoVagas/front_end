@@ -15,10 +15,10 @@ test('renders Navbar component', () => {
   expect(navbarElement).toBeInTheDocument();
 });
 
-test('renders Hero component', () => {
+test('renders Destaque component', () => {
   render(<App />);
-  const heroElement = screen.getByTestId('hero');
-  expect(heroElement).toBeInTheDocument();
+  const destaqueElement = screen.getByTestId('Destaque');
+  expect(destaqueElement).toBeInTheDocument();
 });
 
 test('renders Categorias component', () => {
