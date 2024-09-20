@@ -1,7 +1,7 @@
 // App.js
 import React from 'react';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
+import Destaque from './components/Destaque';
 import Categorias from './components/Categorias';
 import EmpresasDestaque from './components/EmpresasDestaque';
 import ImpulsioneCarreira from './components/ImpulsioneCarreira';
@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Navbar />
       <main className="main-content">
-        <Hero />
+        <Destaque />
         <Categorias />
         <EmpresasDestaque />
         <ImpulsioneCarreira />
