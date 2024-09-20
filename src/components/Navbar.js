@@ -29,7 +29,7 @@ function Navbar() {
           <li className="text-center py-2"><a href="#" className="text-white hover:text-blue-400">Home</a></li>
           <li className="text-center py-2"><a href="#" className="text-white hover:text-blue-400">Explorar</a></li>
           <li className="text-center py-2"><a href="#" className="text-white hover:text-blue-400">Poste um trabalho</a></li>
-          <li className="text-center py-2"><a href="#" className="text-white hover:text-blue-400">Procure</a></li>
+          <li className="text-center py-2"><a href="#" className="text-white hover:text-blue-400">Sobre nós</a></li>
           <li className="text-center py-2 md:hidden"><button className="bg-purple-500 hover:bg-blue-400 text-white py-2 px-4 rounded transition duration-300">Log in</button></li>
         </ul>
         <button className="hidden md:block bg-white hover:bg-blue-400 text-black py-2 px-4 rounded-full transition duration-300">
