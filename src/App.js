@@ -1,25 +1,16 @@
 // App.js
 import React from 'react';
-import Navbar from './components/Navbar';
-import Destaque from './components/Destaque';
-import Categorias from './components/Categorias';
-import EmpresasDestaque from './components/EmpresasDestaque';
-import ImpulsioneCarreira from './components/ImpulsioneCarreira';
-import Footer from './components/Footer';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from './pages/Home'
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <main className="main-content">
-        <Destaque />
-        <Categorias />
-        <EmpresasDestaque />
-        <ImpulsioneCarreira />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
