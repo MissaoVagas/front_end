@@ -26,8 +26,7 @@ function Navbar() {
           </button>
         </div>
         <ul className={`flex-col md:flex-row md:flex md:items-center md:space-x-5 ${isOpen ? 'flex' : 'hidden'} absolute md:static navbar md:bg-transparent w-full md:w-auto left-0 top-16 md:top-auto`}>
-          <li className="text-center py-2"><a href="#" className="text-white hover:text-blue-400">Home</a></li>
-          <li className="text-center py-2"><a href="#" className="text-white hover:text-blue-400">Explorar</a></li>
+          <li className="text-center py-2"><a className="text-white hover:text-blue-400" href="/home">Home</a></li>
           <li className="text-center py-2"><a href="#" className="text-white hover:text-blue-400">Poste um trabalho</a></li>
           <li className="text-center py-2"><a href="#" className="text-white hover:text-blue-400">Sobre nós</a></li>
           <li className="text-center py-2 md:hidden"><button className="bg-purple-500 hover:bg-blue-400 text-white py-2 px-4 rounded transition duration-300">Log in</button></li>
