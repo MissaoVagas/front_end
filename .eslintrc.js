@@ -6,6 +6,6 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
   ],
   rules: {
-    'jsx-a11y/anchor-is-valid': 'warn',
+    'jsx-a11y/anchor-is-valid': 'off', // Desativa a regra temporariamente, durante o desenvolvimento
   },
 };
