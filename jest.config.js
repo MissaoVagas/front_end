@@ -1,4 +1,3 @@
-// jest.config.js
 module.exports = {
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
   transform: {
@@ -10,4 +9,13 @@ module.exports = {
     '\\.(css|less)$': '<rootDir>/__mocks__/fileMock.js',
   },
   testEnvironment: 'jsdom',
+  
+  collectCoverage: true,
+  coverageDirectory: 'coverage',
+  coverageReporters: ['json', 'lcov', 'html', 'text'],
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx}',
+    '!src/index.js',
+    '!src/reportWebVitals.js',
+  ],
 };
