@@ -1,18 +1,44 @@
-name: CI
+name: CI/CD Pipeline
 
 on:
   push:
     branches: ["**"]
   pull_request:
-    branches: ["main"]
+    branches:
+      - main
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x]
-        # Veja o cronograma de lançamento do Node.js em https://nodejs.org/en/about/releases/
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18.x"
+      - run: npm ci
+      - run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
@@ -23,20 +49,22 @@ jobs:
       - run: npm ci
       - run: npm test
 
-  deploy:
+  security-scan:
     runs-on: ubuntu-latest
-    needs: build-and-test
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js 18.x
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
-          cache: "npm"
+          node-version: "18.x"
       - run: npm ci
+      - run: npm audit
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build, test, lint, security-scan]
+    steps:
+      - uses: actions/checkout@v4
       - name: Deploy to Production
-        env:
-          CI: true
         run: |
-          # TODO: Adicione o comando de deploy aqui
-          # echo "Deploying to production..."
+          # Comandos para implantar o código
