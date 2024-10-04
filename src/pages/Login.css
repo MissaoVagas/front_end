@@ -1,0 +1,13 @@
+.Login {
+    display: flex;
+    align-items: center;
+}
+
+.rocket {
+    width: 50%;
+    height: 80vh;
+    background-image: linear-gradient(to right, rgba(17, 24, 39, 0) 75%, rgba(22, 22, 22, 1)), url('../assets/images/login-background.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
