@@ -1,8 +1,7 @@
-// components/Navbar.js
+// src/components/Navbar.js
 import React, { useState } from 'react';
 import logo from '../assets/icons/logo.png';
 import './Navbar.css';
-
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +18,7 @@ function Navbar() {
           <span className="text-2xl text-white-500">JobsRocket</span>
         </div>
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-white focus:outline-none">
+          <button onClick={toggleMenu} className="text-white focus:outline-none" aria-label="menu">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
@@ -29,9 +28,9 @@ function Navbar() {
           <li className="text-center py-2"><a className="text-white hover:text-blue-400" href="/home">Home</a></li>
           <li className="text-center py-2"><a href="#" className="text-white hover:text-blue-400">Poste um trabalho</a></li>
           <li className="text-center py-2"><a href="#" className="text-white hover:text-blue-400">Sobre nós</a></li>
-          <li className="text-center py-2 md:hidden"><button className="bg-purple-500 hover:bg-blue-400 text-white py-2 px-4 rounded transition duration-300">Log in</button></li>
+          <li className="text-center py-2 md:hidden"><button data-testid="mobile-login-button" className="bg-purple-500 hover:bg-blue-400 text-white py-2 px-4 rounded transition duration-300">Log in</button></li>
         </ul>
-        <button className="hidden md:block bg-white hover:bg-blue-400 text-black py-2 px-4 rounded-full transition duration-300">
+        <button data-testid="desktop-login-button" className="hidden md:block bg-white hover:bg-blue-400 text-black py-2 px-4 rounded-full transition duration-300">
           Log in
         </button>
       </div>
