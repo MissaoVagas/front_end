@@ -1,5 +1,5 @@
 import { UserCircleIcon } from '@heroicons/react/24/solid'
-import { useContext} from 'react';
+import React,{ useContext} from 'react';
 import { UserContext } from '../../context/UserContext';
 import defaultPhoto from '../../assets/imgs/astronauta.png'
 
