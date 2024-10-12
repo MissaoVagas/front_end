@@ -51,12 +51,12 @@ function Login() {
                         </form>
                         
                         {/* Botões de login com Google e Facebook */}
-                        <div className="flex flex-col space-y-4 mt-6">
-                            <button className="w-full bg-red-600 hover:bg-red-500 text-white font-semibold py-2 rounded flex justify-center items-center">
-                                <FaGoogle className="mr-2" /> Login with Google
+                        <div className="flex justify-between mt-6">
+                            <button className="w-1/2 flex items-center justify-center bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded mr-2">
+                                <FaGoogle className="mr-2" /> <span>Google</span>
                             </button>
-                            <button className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 rounded flex justify-center items-center">
-                                <FaFacebook className="mr-2" /> Login with Facebook
+                            <button className="w-1/2 flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded ml-2">
+                                <FaFacebook className="mr-2" /> <span>Facebook</span>
                             </button>
                         </div>
 
