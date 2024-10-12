@@ -7,10 +7,17 @@ import ImpulsioneCarreira from '../components/ImpulsioneCarreira';
 import Footer from '../components/Footer';
 import './Home.css'
 
+const menuItems = [
+    { label: 'Home', link: '#' },
+    { label: 'Explorar', link: '#' },
+    { label: 'Poste um trabalho', link: '#' },
+    { label: 'Sobre nós', link: '#' },
+  ];
+
 function Home() {
     return (
         <div className="Home">
-            <Navbar />
+            <Navbar isLoginVisible={true} menuItems={menuItems}/>
             <main className="main-content">
                 <Destaque />
                 <Categorias />
