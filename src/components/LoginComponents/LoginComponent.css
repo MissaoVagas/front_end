@@ -1,0 +1,59 @@
+.Login {
+    display: flex;
+    align-items: center;
+    background-color: rgb(23, 33, 46);
+}
+
+/* Definindo o comportamento padrão para telas maiores */
+.rocket {
+    width: 50%;
+    height: 80vh;
+    background-image: linear-gradient(to right, rgba(23, 33, 46, 0) 75%, rgba(23, 33, 46, 1)), url('../../assets/imgs/login-background.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Ajuste para telas menores, até 1000px */
+@media (max-width: 1000px) {
+    .Login {
+        background-image: url('../../assets/imgs/login-background.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rocket {
+        display: none;
+    }
+}
+
+/* Ajuste para telas menores, até 450px */
+@media (max-width: 450px) {
+    .Login {
+        background-image: none;
+        background-color: rgb(31, 41, 55);
+        height: 80vh;
+    }
+
+    .flex-grow {
+        width: 100%;
+    }
+
+    .bg-gray-800 {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 320px) {
+    button span {
+        display: none;
+    }
+}
