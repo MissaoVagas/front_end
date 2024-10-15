@@ -18,7 +18,9 @@ module.exports = {
     'plugin:react/recommended'
   ],
   rules: {
-    'jsx-a11y/anchor-is-valid': 'off', // Desativa a regra temporariamente, durante o desenvolvimento
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'no-unused-vars': 'warn', // ou 'error' se preferir
   },
   settings: {
     react: {
