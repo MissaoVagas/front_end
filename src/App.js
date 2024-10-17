@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Curriculo from './pages/Curriculo';
 import { UserProvider } from './context/UserContext';
 import './App.css';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/curriculo" element={<Curriculo/>}/>
+          <Route path="/profile" element={<Profile/>}/>
         </Routes>
       </BrowserRouter>
     </UserProvider>
