@@ -1,0 +1,12 @@
+/* src/components/ResultadosPesquisa.css */
+.resultados-pesquisa {
+    padding: 20px;
+  }
+  
+  .vaga-card {
+    transition: transform 0.3s;
+  }
+  
+  .vaga-card:hover {
+    transform: scale(1.05);
+  }

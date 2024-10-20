@@ -1,0 +1,9 @@
+/* src/components/FiltroPesquisa.css */
+.filtro-pesquisa {
+    background-color: #2d3748; /* fundo cinza escuro */
+  }
+  
+  .filtro-pesquisa select,
+  .filtro-pesquisa input {
+    width: 100%;
+  }

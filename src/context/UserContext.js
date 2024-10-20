@@ -30,6 +30,14 @@ export const UserProvider = ({ children }) => {
     profissionais:[{empresa:'', cargo:'', dataInicioExp:'', dataFimExp:'', tipoEmprego:'', responsabilidades:''}],
     cursos: [{curso:'', instituicao:'', duracao:'', descricao:''}]
   });
+
+  const [resultados, setResultados] = useState([]);
+  const [filtros, setFiltros] = useState({
+    categoria: '',
+    localizacao: '',
+    nivelExperiencia: '',
+    tipoContrato: ''
+  });
   
 
   return (
@@ -46,7 +54,11 @@ export const UserProvider = ({ children }) => {
         cursos,
         setCursos,
         errors,
-        setErrors
+        setErrors,
+        resultados,        
+        setResultados,     
+        filtros,           
+        setFiltros         
       }}
     >
       {children}
