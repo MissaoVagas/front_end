@@ -19,6 +19,7 @@ module.exports = {
   ],
   rules: {
     'jsx-a11y/anchor-is-valid': 'off', // Desativa a regra temporariamente, durante o desenvolvimento
+    'react/react-in-jsx-scope': 'off'  // Desativa a regra que exige React no escopo ao usar JSX
   },
   settings: {
     react: {
