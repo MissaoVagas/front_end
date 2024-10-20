@@ -34,7 +34,7 @@ jobs:
         with:
           node-version: "18.x"
       - run: npm ci
-      - run: npm run lint // desabilitado temporariamente
+      - run: npm run lint
 
   test:
     name: Run Tests
