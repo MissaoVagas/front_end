@@ -1,0 +1,10 @@
+/* Background.css */
+
+/* Estilo para o background */
+.profile-background {
+    background-image: url('../assets/imgs/background-galaxia.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Garante que o background cubra toda a altura da tela */
+} 

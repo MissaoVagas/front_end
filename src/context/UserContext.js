@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import React,{ createContext, useState } from 'react';
 import defaultPhoto from '../assets/imgs/astronauta.png'
 
 // Criação do Contexto
