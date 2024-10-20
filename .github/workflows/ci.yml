@@ -22,8 +22,20 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Run tests
-        run: npm test
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18.x"
+      - name: Install dependencies
+        run: npm install
+      - name: Build application
+        run: npm run build
 
   deploy:
     name: Deploy to Production
@@ -33,18 +45,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: "18.x"
-
       - name: Install dependencies
         run: npm install
-
       - name: Build application
         run: npm run build
-
       - name: Deploy to production
         run: |
           # Adicione aqui o comando para fazer o deploy da sua aplicação
