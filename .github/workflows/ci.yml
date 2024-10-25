@@ -2,54 +2,71 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches:
-      - main
+    branches: ["**"]
   pull_request:
     branches:
       - main
 
 jobs:
   build:
+    name: Build Application
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Node.js
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
       - run: npm ci
-
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "18.x"
-      - run: npm ci
-      - name: Run tests
-        run: npm test
+      - run: npm run build
 
   lint:
+    name: Lint Code
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Node.js
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "18.x"
       - run: npm ci
-      - name: Run linter
-        run: npm run lint
+      - run: npm run lint
+
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm test
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18.x"
+      - run: npm ci
+      - run: npm audit
 
   deploy:
     name: Deploy to Production
     runs-on: ubuntu-latest
     needs: [build, test, lint]
-    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
       - name: Authenticate to Google Cloud
@@ -63,5 +80,3 @@ jobs:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
       - name: Deploy to App Engine
         uses: google-github-actions/deploy-appengine@v1
-        with:
-          deliverables: "app.yaml"
