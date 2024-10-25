@@ -1,42 +1,78 @@
-name: CI
+name: CI/CD Pipeline
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18.x"
+      - run: npm ci
+      - name: Build the application
+        run: npm run build # Adicione este passo para garantir que o build seja executado
 
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18.x"
+      - run: npm ci
+      - name: Run tests
+        run: npm test
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18.x"
+      - run: npm ci
+      - name: Run linter
+        run: npm run lint
+
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [build, test, lint]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "18.x" # Certifique-se de que o Node.js esteja configurado
-
       - run: npm ci # Instala dependências novamente para o ambiente de deploy
-
       - run: npm run build # Execute o build novamente antes da implantação
-
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v1
         with:
           credentials_json: ${{ secrets.GCP_SA_KEY }}
-
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
         with:
           version: "latest"
           project_id: ${{ secrets.GCP_PROJECT_ID }}
-
       - name: Deploy to App Engine
         uses: google-github-actions/deploy-appengine@v1
         with:
-          deliverables: "./app.yaml"
+          deliverables: "./app.yaml" # Verifique se o caminho para app.yaml está correto
           promote: true
         env:
           CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE: /home/runner/work/front_end/front_end/gha-creds-8e1cce7c33d510a6.json
@@ -49,3 +85,4 @@ jobs:
           GOOGLE_CLOUD_PROJECT: ${{ secrets.GCP_PROJECT_ID }}
           CLOUDSDK_METRICS_ENVIRONMENT: github-actions-setup-gcloud
           CLOUDSDK_METRICS_ENVIRONMENT_VERSION: 1.1.1
+        run: gcloud app deploy --quiet --format json ./app.yaml --promote --verbosity=debug
