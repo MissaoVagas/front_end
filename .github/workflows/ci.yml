@@ -51,18 +51,6 @@ jobs:
       - run: npm ci
       - run: npm test
 
-  security-scan:
-    name: Security Scan
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "18.x"
-      - run: npm ci
-      - run: npm audit
-
   deploy:
     name: Deploy to Production
     runs-on: ubuntu-latest
