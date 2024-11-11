@@ -8,6 +8,7 @@ import Curriculo from './pages/Curriculo';
 import { UserProvider } from './context/UserContext';
 import './App.css';
 import Profile from './pages/Profile';
+import Contato from './pages/Contato';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/curriculo" element={<Curriculo/>}/>
           <Route path="/profile" element={<Profile/>}/>
+          <Route path="/contato" element={<Contato/>}/>
         </Routes>
       </BrowserRouter>
     </UserProvider>
