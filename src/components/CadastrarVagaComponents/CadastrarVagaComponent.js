@@ -44,8 +44,8 @@ function CadastrarVagaComponent() {
 
 
     return (
-        <div className=" min-h-screen flex  flex-col justify-center items-center">
-            <h1 className="text-base font-semibold leading-7 text-white-900">Cadastrar Vaga</h1>
+        <div className=" min-h-screen flex  flex-col justify-center items-center mt-4">
+            <h1 className="text-base font-semibold leading-7 text-white-900  pb-4">Cadastrar Vaga</h1>
             <form className="max-w-3xl w-full p-8 rounded-lg shadow-lg">
                 <div className="space-y-12">
                     <div className="relative flex flex-col gap-x-3 gap-y-3">
