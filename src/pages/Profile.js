@@ -6,9 +6,9 @@ import './Profile.css'
 
 
 const menuItems = [
-    { label: 'Home', link: '#' },
-    { label: 'Explorar', link: '#' },
-    { label: 'Contatos', link: '#' },
+    { label: 'Home', link: '/' },
+    { label: 'Cadastrar Curriculo', link: '/curriculo' },
+    { label: 'Contatos', link: '/contato' },
     { label: 'Sobre nós', link: '#' },
 ];
 

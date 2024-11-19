@@ -8,9 +8,9 @@ import Footer from '../components/Footer';
 import './Home.css'
 
 const menuItems = [
-    { label: 'Home', link: '#' },
+    { label: 'Home', link: '/' },
     { label: 'Explorar', link: '#' },
-    { label: 'Poste um trabalho', link: '#' },
+    { label: 'Poste um trabalho', link: '/cadastrar-vaga' },
     { label: 'Sobre nós', link: '#' },
   ];
 

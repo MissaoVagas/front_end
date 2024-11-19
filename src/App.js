@@ -1,4 +1,4 @@
-// App.js
+
 import React from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './pages/Home'
@@ -10,6 +10,8 @@ import './App.css';
 import Profile from './pages/Profile';
 import Contato from './pages/Contato';
 
+import CadastrarVaga from './pages/CadastrarVaga';
+
 function App() {
   return (
     <UserProvider>
@@ -20,6 +22,7 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/curriculo" element={<Curriculo/>}/>
           <Route path="/profile" element={<Profile/>}/>
+          <Route path="/cadastrar-vaga" element={<CadastrarVaga/>}/>
           <Route path="/contato" element={<Contato/>}/>
         </Routes>
       </BrowserRouter>
