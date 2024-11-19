@@ -9,6 +9,8 @@ import { UserProvider } from './context/UserContext';
 import './App.css';
 import Profile from './pages/Profile';
 
+import CadastrarVaga from './pages/CadastrarVaga';
+
 function App() {
   return (
     <UserProvider>
@@ -19,6 +21,8 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/curriculo" element={<Curriculo/>}/>
           <Route path="/profile" element={<Profile/>}/>
+
+          <Route path="/cadastrar-vaga" element={<CadastrarVaga/>}/>
         </Routes>
       </BrowserRouter>
     </UserProvider>
