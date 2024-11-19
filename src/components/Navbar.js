@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import logo from "../assets/icons/logo.png";
+import {Link} from 'react-router-dom'
 import "./Navbar.css";
 
 function Navbar({ isLoginVisible, menuItems }) {
@@ -47,9 +48,9 @@ function Navbar({ isLoginVisible, menuItems }) {
         >
           {menuItems.map((item, index) => (
             <li key={index} className="text-center py-2">
-              <a href={item.link} className="text-white hover:text-blue-400">
+              <Link to={item.link} className="text-white hover:text-blue-400">
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
           {isLoginVisible && (

@@ -4,9 +4,9 @@ import Footer from '../components/Footer'
 import ContatoComponents from '../components/ContatoComponents/ContatoComponents';
 
 const menuItems = [
-  { label: 'Home', link: '#' },
-  { label: 'Explorar', link: '#' },
-  { label: 'Contatos', link: '#' },
+  { label: 'Home', link: '/' },
+  { label: 'Perfil', link: '/profile' },
+  { label: 'Contatos', link: '/contato' },
   { label: 'Sobre nós', link: '#' },
 ];
 
