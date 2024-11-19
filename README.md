@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# Projeto MaisPraTi e Codifica: Projeto Final - JobsRocket
+A JobsRocket é um projeto desenvolvido como parte do curso de Desenvolvimento Full Stack Jr., oferecido pela parceria entre [+praTI](https://www.maisprati.com.br/) e [Codifica](https://www.codificaedu.com.br/).   
+Nesse projeto foi desenvolvido o Front-End em React e o Back-end em Java.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## :paperclips: Requisitos do Projeto
 
-## Available Scripts
+Desenvolver uma aplicação web interativa e responsiva, utilizando React, que incorpore funcionalidades avançadas de autenticação, gerenciamento de perfis, navegação e interações complexas com o usuário.
 
-In the project directory, you can run:
+## :paperclips: Requisitos Funcionais
+Autenticação de Usuário:
+- Implementar autenticação utilizando OAuth2 com suporte a Google e Facebook.
+- Incluir um sistema de recuperação de senha com funcionalidade de envio de e-mail.
 
-### `npm start`
+Gerenciamento de Perfis com Preferências:
+- Permitir que usuários adicionem preferências pessoais, como escolha de tema (escuro/claro) e configurações de notificações.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Navegação:
+- Implementar animações de transição entre páginas para uma experiência fluida.
+- Utilizar breadcrumbs para facilitar a navegação em páginas com múltiplos níveis.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Lista de Itens com Paginação e Carregamento Infinito:
+- Paginação eficiente e implementação de carregamento contínuo à medida que o usuário rola a página.
 
-### `npm test`
+Detalhes do Item com Comentários e Avaliações:
+- Facilitar a interação do usuário com funcionalidades para comentar e avaliar itens, além de exibir médias de avaliações.
+- Interatividade com Drag and Drop: adicionar funcionalidade de arrastar e soltar para reorganização de itens em listas.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Pesquisa:
+- Desenvolver um sistema de busca com filtros avançados, como faixa de preço e categorias múltiplas, com sugestões de busca baseadas no histórico do usuário.
+  
+## :paperclips: Requisitos Não Funcionais
+Performance e Otimização:
+- A aplicação deve carregar rapidamente e responder de forma ágil às interações do usuário.
+- Utilização de técnicas de lazy loading e otimização de performance do React.
+- Implementar caching com localStorage ou sessionStorage.
+- Utilizar React.memo e useCallback para minimizar re-renderizações desnecessárias.
 
-### `npm run build`
+Segurança:
+- Proteger contra SQL Injection e implementar autenticação de dois fatores.
+- Implementar proteção contra ataques comuns, como XSS (Cross-Site Scripting) e CSRF (Cross-Site Request Forgery).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Usabilidade e Acessibilidade:
+- Implementar feedback visual em tempo real para interações do usuário e garantir acessibilidade completa, incluindo suporte a leitores de tela e navegação por teclado.
+- Interface de Usuário Responsiva: a aplicação deve ser responsiva e funcionar bem em diferentes tamanhos de tela.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Escalabilidade e Manutenibilidade:
+- Adotar uma arquitetura de micro frontends com code splitting e lazy loading.
+- Estabelecer uma pipeline de CI/CD usando ferramentas como GitHub Actions ou Jenkins.
+- Estrutura de código modular e reutilizável para facilitar a adição de novas funcionalidades no futuro.
+- Código bem documentado e estruturado, com comentários claros e concisos.
+- Uso de boas práticas de desenvolvimento, como DRY (Don't Repeat Yourself), SOLID e KISS (Keep It Simple, Stupid).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## :pushpin: Projeto JobsRocket
 
-### `npm run eject`
+É uma aplicação para busca e cadastro de vagas de emprego para pessoas iniciantes no mercado de trabalho. Com vagas focadas apenas em Jovem Aprendiz, Estagiário, Junior e Trainee. Nessa plataforma é possivel se cadastrar como candidato e recrutador.
+Como candidato é possível criar um currículo, buscar e se candidatar a vagas. Como recrutador é possível cadastrar vagas e vizualizar o perfil dos candidatos cadastrados.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### :pushpin: Funcionalidades
+- Pagina inicial (landing page)
+- Cadastro (Candidato/Recrutador)
+- Login (Candidato/Recrutador)
+- Cadastrar Currículo
+- Cadastrar Vaga
+- Formulário para contato
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Pré-requisitos
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Antes de iniciar, certifique-se de ter os seguintes requisitos instalados:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Node.js
+- npm (Node Package Manager)
 
-## Learn More
+## Como Baixar e Rodar o Projeto
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone o repositório:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```
+   git clone https://github.com/MissaoVagas/front_end.git
+   cd front_end
+   ```
 
-### Code Splitting
+2. Instale as dependências:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```
+   npm install
+   ```
 
-### Analyzing the Bundle Size
+3. Inicie a aplicação
+   ```
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+5. Explorando a aplicação:
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   - Acesse a aplicação no seu navegador através do endereço fornecido pelo servidor local (`http://localhost:3000`, por exemplo).
+   - A aplicação tabm pode ser acessada por esse link do seu deploy [JobsRocket](https://jobsrocket.uc.r.appspot.com/).
