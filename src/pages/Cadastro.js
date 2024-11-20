@@ -3,9 +3,9 @@ import Footer from "../components/Footer";
 import CadastroComponent from "../components/CadastroUsuarioComponents/CadastroComponent";
 
 const menuItems = [
-    { label: 'Home', link: '#' },
+    { label: 'Home', link: '/' },
     { label: 'Explorar', link: '#' },
-    { label: 'Contatos', link: '#' },
+    { label: 'Contatos', link: '/contatos' },
     { label: 'Sobre nós', link: '#' },
 ];
 

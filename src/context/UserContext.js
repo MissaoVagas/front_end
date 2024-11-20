@@ -9,6 +9,13 @@ export const UserContext = createContext();
 // Componente Provider para envolver a aplicação
 export const UserProvider = ({ children }) => {
   // Estados para armazenar as informações
+  const [usuario, setUsuario] = useState({
+    nome:"",
+    email:"",
+    senha:"",
+    role:""
+  })
+  const [userInfo, setUserInfo] = useState({})
   const [principais, setPrincipais] = useState({
     username: "",
     about: "",
@@ -65,6 +72,10 @@ export const UserProvider = ({ children }) => {
   return (
     <UserContext.Provider
       value={{
+        usuario,
+        setUsuario,
+        userInfo,
+        setUserInfo,
         principais,
         setPrincipais,
         pessoais,

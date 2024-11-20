@@ -1,11 +1,48 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CandidatoForm from "./CandidatoForm";
 import RecrutadorForm from "./RecrutadorForm";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import "./CadastroComponent.css";
+import { UserContext } from "../../context/UserContext";
+import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 function CadastroComponent() {
     const [perfil, setPerfil] = useState("candidato");
+
+    const {usuario, userInfo, setUserInfo} = useContext(UserContext);
+
+    const navigate = useNavigate()
+
+    const handleSubmit = async (event)=>{
+        event.preventDefault();
+
+        try{
+
+            let response;
+
+            if(perfil == "candidato"){
+                response = await axios.post('http://localhost:8080/api/user/candidato', usuario);
+            }else{
+                response = await axios.post('http://localhost:8080/api/user/recrutador', usuario);
+                
+            }
+
+            if(response.status == "201"){
+                setUserInfo(response.data);
+                console.log(response);
+                navigate('/login')
+            }else{
+                console.error('Erro na requisição: ', response.statusText)
+            }
+            
+            
+
+        }catch(error){
+            console.error('Erro ao cadastrar usuário', error)
+            alert("Erro ao cadastrar usuário! Por favor, tente novamente.")
+        }
+    }
 
     return (
         <div className="Cadastro">
@@ -29,7 +66,7 @@ function CadastroComponent() {
                         </button>
                     </div>
 
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         {perfil === "candidato" ? <CandidatoForm /> : <RecrutadorForm />}
 
                         <button
